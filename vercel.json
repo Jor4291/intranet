@@ -44,10 +44,5 @@
     "QUEUE_CONNECTION": "sync",
 
     "SANCTUM_STATEFUL_DOMAINS": "your-vercel-url.vercel.app"
-  },
-  "functions": {
-    "backend/public/index.php": {
-      "runtime": "php-8.2"
-    }
   }
 }
