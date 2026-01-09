@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/intranet-frontend"
+      }
+    },
+    {
+      "src": "backend/public/index.php",
+      "use": "@vercel/php",
+      "config": {
+        "runtime": "php-8.2",
+        "buildCommand": "chmod +x vercel-deploy.sh && ./vercel-deploy.sh"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/public/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/intranet-frontend/$1"
+    }
+  ],
+  "env": {
+    "APP_NAME": "Intranet",
+    "APP_ENV": "production",
+    "APP_KEY": "@intranet-app-key",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://your-vercel-url.vercel.app",
+
+    "DB_CONNECTION": "sqlite",
+    "DB_DATABASE": "/tmp/database.sqlite",
+
+    "SESSION_DRIVER": "file",
+    "SESSION_LIFETIME": "120",
+
+    "CACHE_DRIVER": "file",
+    "QUEUE_CONNECTION": "sync",
+
+    "SANCTUM_STATEFUL_DOMAINS": "your-vercel-url.vercel.app"
+  },
+  "functions": {
+    "backend/public/index.php": {
+      "runtime": "php-8.2"
+    }
+  }
+}

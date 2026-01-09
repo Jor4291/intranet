@@ -1,0 +1,16 @@
+{
+  "name": "intranet-fullstack",
+  "version": "1.0.0",
+  "description": "Cloud-hosted Intranet MVP",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "concurrently \"cd backend && php artisan serve\" \"cd frontend && npm start\"",
+    "install:all": "cd backend && composer install && cd ../frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
