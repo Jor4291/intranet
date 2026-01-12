@@ -20,7 +20,7 @@ import { AuthService } from '../../../core/services/auth.service';
           <div class="space-y-4">
             <div>
               <label for="organization-slug" class="block text-sm font-medium text-gray-700 mb-1">
-                Organization Slug
+                Organization
               </label>
               <input
                 id="organization-slug"
@@ -43,7 +43,7 @@ import { AuthService } from '../../../core/services/auth.service';
                 required
                 [(ngModel)]="username"
                 class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="admin or neill"
+                placeholder="neill or testuser"
               />
             </div>
             <div>
@@ -70,8 +70,8 @@ import { AuthService } from '../../../core/services/auth.service';
             <div class="text-sm text-blue-800">
               <p class="font-medium mb-2">Test Credentials:</p>
               <div class="space-y-1 text-xs">
-                <p><strong>Admin Account:</strong> admin / password123</p>
-                <p><strong>Test Account:</strong> neill / Fhgryt123!!</p>
+                <p><strong>Admin Account:</strong> neill / demo123</p>
+                <p><strong>Test Account:</strong> testuser / test123</p>
                 <p><strong>Organization:</strong> demo</p>
               </div>
             </div>

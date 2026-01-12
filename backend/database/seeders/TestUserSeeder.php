@@ -31,11 +31,11 @@ class TestUserSeeder extends Seeder
         // Create the test user
         $user = User::create([
             'organization_id' => $organization->id,
-            'username' => 'neill',
-            'email' => 'Neill@NextLevelStudio.com',
-            'password' => Hash::make('Fhgryt123!!'),
-            'first_name' => 'Neill',
-            'last_name' => 'Robertson',
+            'username' => 'testuser',
+            'email' => 'test@example.com',
+            'password' => Hash::make('test123'),
+            'first_name' => 'Test',
+            'last_name' => 'User',
             'status' => 'online',
         ]);
 

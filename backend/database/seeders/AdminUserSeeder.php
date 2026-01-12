@@ -28,19 +28,19 @@ class AdminUserSeeder extends Seeder
 
         $admin = User::create([
             'organization_id' => $organization->id,
-            'username' => 'admin',
-            'email' => 'admin@demo.com',
-            'password' => Hash::make('password123'),
-            'first_name' => 'Admin',
-            'last_name' => 'User',
-            'status' => 'offline',
+            'username' => 'neill',
+            'email' => 'neill@demo.com',
+            'password' => Hash::make('demo123'),
+            'first_name' => 'Neill',
+            'last_name' => 'Admin',
+            'status' => 'online',
         ]);
 
         $admin->roles()->attach($adminRole->id);
 
         $this->command->info('Admin user created:');
-        $this->command->info('Username: admin');
-        $this->command->info('Password: password123');
+        $this->command->info('Username: neill');
+        $this->command->info('Password: demo123');
     }
 }
 
