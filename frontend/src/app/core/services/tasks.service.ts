@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { apiUrl } from './api-url';
+import { getCurrentApiUrl } from './api-url';
 
 export interface Task {
   id: number;
@@ -23,18 +23,18 @@ export class TasksService {
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${apiUrl}/tasks`);
+    return this.http.get<Task[]>(`${getCurrentApiUrl()}/tasks`);
   }
 
   createTask(task: Partial<Task>): Observable<Task> {
-    return this.http.post<Task>(`${apiUrl}/tasks`, task);
+    return this.http.post<Task>(`${getCurrentApiUrl()}/tasks`, task);
   }
 
   updateTask(id: number, task: Partial<Task>): Observable<Task> {
-    return this.http.put<Task>(`${apiUrl}/tasks/${id}`, task);
+    return this.http.put<Task>(`${getCurrentApiUrl()}/tasks/${id}`, task);
   }
 
   deleteTask(id: number): Observable<any> {
-    return this.http.delete(`${apiUrl}/tasks/${id}`);
+    return this.http.delete(`${getCurrentApiUrl()}/tasks/${id}`);
   }
 }

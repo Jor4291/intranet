@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { apiUrl } from './api-url';
+import { getCurrentApiUrl } from './api-url';
 
 export interface NewsfeedPost {
   id: number;
@@ -47,32 +47,32 @@ export class NewsfeedService {
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<NewsfeedPost[]> {
-    return this.http.get<{data: NewsfeedPost[]}>(`${apiUrl}/newsfeed`).pipe(
+    return this.http.get<{data: NewsfeedPost[]}>(`${getCurrentApiUrl()}/newsfeed`).pipe(
       map(response => response.data)
     );
   }
 
   createPost(title: string, content: string): Observable<NewsfeedPost> {
-    return this.http.post<NewsfeedPost>(`${apiUrl}/newsfeed`, { title, content });
+    return this.http.post<NewsfeedPost>(`${getCurrentApiUrl()}/newsfeed`, { title, content });
   }
 
   commentOnPost(postId: number, content: string): Observable<NewsfeedComment> {
-    return this.http.post<NewsfeedComment>(`${apiUrl}/newsfeed/${postId}/comment`, { content });
+    return this.http.post<NewsfeedComment>(`${getCurrentApiUrl()}/newsfeed/${postId}/comment`, { content });
   }
 
   likePost(postId: number): Observable<any> {
-    return this.http.post(`${apiUrl}/newsfeed/${postId}/like`, {});
+    return this.http.post(`${getCurrentApiUrl()}/newsfeed/${postId}/like`, {});
   }
 
   unlikePost(postId: number): Observable<any> {
-    return this.http.delete(`${apiUrl}/newsfeed/${postId}/like`);
+    return this.http.delete(`${getCurrentApiUrl()}/newsfeed/${postId}/like`);
   }
 
   likeComment(commentId: number): Observable<any> {
-    return this.http.post(`${apiUrl}/newsfeed/comments/${commentId}/like`, {});
+    return this.http.post(`${getCurrentApiUrl()}/newsfeed/comments/${commentId}/like`, {});
   }
 
   unlikeComment(commentId: number): Observable<any> {
-    return this.http.delete(`${apiUrl}/newsfeed/comments/${commentId}/like`);
+    return this.http.delete(`${getCurrentApiUrl()}/newsfeed/comments/${commentId}/like`);
   }
 }

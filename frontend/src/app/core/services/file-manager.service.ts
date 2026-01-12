@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { apiUrl } from './api-url';
+import { getCurrentApiUrl } from './api-url';
 
 export interface FileItem {
   id: number;
@@ -22,16 +22,16 @@ export class FileManagerService {
   constructor(private http: HttpClient) { }
 
   getFiles(): Observable<FileItem[]> {
-    return this.http.get<FileItem[]>(`${apiUrl}/files`);
+    return this.http.get<FileItem[]>(`${getCurrentApiUrl()}/files`);
   }
 
   uploadFile(file: File): Observable<FileItem> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<FileItem>(`${apiUrl}/files`, formData);
+    return this.http.post<FileItem>(`${getCurrentApiUrl()}/files`, formData);
   }
 
   deleteFile(id: number): Observable<any> {
-    return this.http.delete(`${apiUrl}/files/${id}`);
+    return this.http.delete(`${getCurrentApiUrl()}/files/${id}`);
   }
 }

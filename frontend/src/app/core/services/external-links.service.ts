@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { apiUrl } from './api-url';
+import { getCurrentApiUrl } from './api-url';
 
 export interface ExternalLink {
   id: number;
@@ -24,18 +24,18 @@ export class ExternalLinksService {
   constructor(private http: HttpClient) { }
 
   getLinks(): Observable<ExternalLink[]> {
-    return this.http.get<ExternalLink[]>(`${apiUrl}/external-links`);
+    return this.http.get<ExternalLink[]>(`${getCurrentApiUrl()}/external-links`);
   }
 
   createLink(link: Partial<ExternalLink>): Observable<ExternalLink> {
-    return this.http.post<ExternalLink>(`${apiUrl}/external-links`, link);
+    return this.http.post<ExternalLink>(`${getCurrentApiUrl()}/external-links`, link);
   }
 
   updateLink(id: number, link: Partial<ExternalLink>): Observable<ExternalLink> {
-    return this.http.put<ExternalLink>(`${apiUrl}/external-links/${id}`, link);
+    return this.http.put<ExternalLink>(`${getCurrentApiUrl()}/external-links/${id}`, link);
   }
 
   deleteLink(id: number): Observable<any> {
-    return this.http.delete(`${apiUrl}/external-links/${id}`);
+    return this.http.delete(`${getCurrentApiUrl()}/external-links/${id}`);
   }
 }

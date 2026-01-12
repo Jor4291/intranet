@@ -22,8 +22,8 @@ export const getApiUrl = (): string => {
   return 'http://localhost:8000/api';
 };
 
-// Export the function so it can be called dynamically
+// Export the function for dynamic calls
 export const getCurrentApiUrl = getApiUrl;
 
-// For backward compatibility, still export a constant that calls the function
+// For backward compatibility - but this might be cached
 export const apiUrl = getApiUrl();
