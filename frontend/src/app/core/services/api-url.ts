@@ -1,5 +1,11 @@
 // API URL utility for dynamic environment detection
 export const getApiUrl = (): string => {
+  // First check for environment variable set by Vercel
+  if (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) {
+    console.log('Using Vite env API URL:', import.meta.env.VITE_API_BASE_URL);
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
     const isVercel = hostname.includes('vercel.app');
