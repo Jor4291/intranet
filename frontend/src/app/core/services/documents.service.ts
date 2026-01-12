@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
+import { apiUrl } from './api-url';
 
 export interface Document {
   id: number;
@@ -28,7 +28,7 @@ export class DocumentsService {
   constructor(private http: HttpClient) { }
 
   getDocuments(): Observable<Document[]> {
-    return this.http.get<{data: Document[]}>(`${environment.apiUrl}/documents`).pipe(
+    return this.http.get<{data: Document[]}>(`${apiUrl}/documents`).pipe(
       map(response => response.data)
     );
   }
@@ -38,10 +38,10 @@ export class DocumentsService {
     formData.append('file', file);
     formData.append('name', file.name);
     formData.append('type', 'company'); // Default to company documents
-    return this.http.post<Document>(`${environment.apiUrl}/documents`, formData);
+    return this.http.post<Document>(`${apiUrl}/documents`, formData);
   }
 
   deleteDocument(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/documents/${id}`);
+    return this.http.delete(`${apiUrl}/documents/${id}`);
   }
 }

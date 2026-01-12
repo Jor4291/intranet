@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
+import { apiUrl } from './api-url';
 
 export interface User {
   id: number;
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   login(organizationSlug: string, username: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${environment.apiUrl}/login`, {
+    return this.http.post<LoginResponse>(`${apiUrl}/login`, {
       organization_slug: organizationSlug,
       username,
       password,
@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   register(data: any): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${environment.apiUrl}/register`, data).pipe(
+    return this.http.post<LoginResponse>(`${apiUrl}/register`, data).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('user', JSON.stringify(response.user));
@@ -64,7 +64,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.currentUserSubject.next(null);
-    this.http.post(`${environment.apiUrl}/logout`, {}).subscribe();
+    this.http.post(`${apiUrl}/logout`, {}).subscribe();
   }
 
   getToken(): string | null {
@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   updateProfile(profileData: { first_name: string; last_name: string; email: string }): Observable<User> {
-    return this.http.put<User>(`${environment.apiUrl}/profile`, profileData).pipe(
+    return this.http.put<User>(`${apiUrl}/profile`, profileData).pipe(
       tap(updatedUser => {
         // Update the current user in localStorage and BehaviorSubject
         localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -90,7 +90,7 @@ export class AuthService {
   }
 
   changePassword(passwordData: { current_password: string; password: string; password_confirmation: string }): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/profile/change-password`, passwordData);
+    return this.http.post(`${apiUrl}/profile/change-password`, passwordData);
   }
 }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { apiUrl } from './api-url';
 
 export interface User {
   id: number;
@@ -26,22 +26,22 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`);
+    return this.http.get<User[]>(`${apiUrl}/users`);
   }
 
   createUser(user: Partial<User> & { password: string }): Observable<User> {
-    return this.http.post<User>(`${environment.apiUrl}/users`, user);
+    return this.http.post<User>(`${apiUrl}/users`, user);
   }
 
   updateUser(id: number, user: Partial<User>): Observable<User> {
-    return this.http.put<User>(`${environment.apiUrl}/users/${id}`, user);
+    return this.http.put<User>(`${apiUrl}/users/${id}`, user);
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/users/${id}`);
+    return this.http.delete(`${apiUrl}/users/${id}`);
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
+    return this.http.get<User>(`${apiUrl}/users/${id}`);
   }
 }
