@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://*.vercel.app', 'https://your-vercel-url.vercel.app'],
+    'allowed_origins' => ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://*.vercel.app', 'https://jor4291-intranet.vercel.app'],
 
     'allowed_origins_patterns' => [],
 
