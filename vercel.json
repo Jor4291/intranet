@@ -30,7 +30,6 @@
   "env": {
     "APP_NAME": "Intranet",
     "APP_ENV": "production",
-    "APP_KEY": "@intranet-app-key",
     "APP_DEBUG": "false",
     "APP_URL": "https://your-vercel-url.vercel.app",
 
