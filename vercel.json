@@ -26,5 +26,10 @@
     "QUEUE_CONNECTION": "sync",
 
     "SANCTUM_STATEFUL_DOMAINS": "jor4291-intranet.vercel.app"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
 }

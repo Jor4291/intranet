@@ -18,17 +18,17 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // For demo purposes, accept admin/admin123 credentials
+        // For demo purposes, accept neill/demo123 credentials
         if ($request->organization_slug === 'demo' &&
-            $request->username === 'admin' &&
-            $request->password === 'password123') {
+            $request->username === 'neill' &&
+            $request->password === 'demo123') {
 
             $user = [
                 'id' => 1,
-                'username' => 'admin',
-                'email' => 'admin@intranet.com',
-                'first_name' => 'Admin',
-                'last_name' => 'User',
+                'username' => 'neill',
+                'email' => 'neill@demo.com',
+                'first_name' => 'Neill',
+                'last_name' => 'Admin',
                 'status' => 'online',
                 'roles' => [
                     [
