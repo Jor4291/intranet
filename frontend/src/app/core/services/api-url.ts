@@ -1,33 +1,21 @@
 // API URL utility for dynamic environment detection
 export const getApiUrl = (): string => {
-  // First check for environment variable set by Vercel
-  if (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) {
-    console.log('Using Vite env API URL:', import.meta.env.VITE_API_BASE_URL);
-    return import.meta.env.VITE_API_BASE_URL;
-  }
-
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    const isVercel = hostname.includes('vercel.app');
-    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+    const isVercel = hostname.includes('vercel.app') || hostname.includes('intranet');
+    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
 
     console.log('API URL Detection:', { hostname, isVercel, isLocalhost });
 
-    // Use relative API path for production (Vercel)
-    if (isVercel) {
+    // Use relative API path for production (Vercel or any deployment)
+    if (isVercel || !isLocalhost) {
       console.log('Using production API URL: /api');
       return '/api';
     }
 
     // Use localhost for development
-    if (isLocalhost) {
-      console.log('Using development API URL: http://localhost:8000/api');
-      return 'http://localhost:8000/api';
-    }
-
-    // Default to production for any other hostname (safety net)
-    console.log('Using default production API URL: /api');
-    return '/api';
+    console.log('Using development API URL: http://localhost:8000/api');
+    return 'http://localhost:8000/api';
   }
   // Use localhost for development (server-side)
   console.log('Using server-side development API URL: http://localhost:8000/api');

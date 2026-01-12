@@ -25,14 +25,11 @@
     "CACHE_DRIVER": "file",
     "QUEUE_CONNECTION": "sync",
 
-    "SANCTUM_STATEFUL_DOMAINS": "jor4291-intranet.vercel.app",
-
-    "VITE_API_BASE_URL": "/api"
+    "SANCTUM_STATEFUL_DOMAINS": "jor4291-intranet.vercel.app"
   },
   "build": {
     "env": {
-      "NODE_ENV": "production",
-      "VITE_API_BASE_URL": "/api"
+      "NODE_ENV": "production"
     }
   }
 }
