@@ -18,7 +18,7 @@
       "src": "/(.*)",
       "dest": "/frontend/dist/intranet-frontend/$1"
     }
-  ]
+  ],
   "env": {
     "APP_NAME": "Intranet",
     "APP_ENV": "production",
@@ -35,10 +35,5 @@
     "QUEUE_CONNECTION": "sync",
 
     "SANCTUM_STATEFUL_DOMAINS": "jor4921-intranet.vercel.app"
-  },
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
   }
 }
