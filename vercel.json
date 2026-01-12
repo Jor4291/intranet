@@ -18,12 +18,12 @@
       "src": "/(.*)",
       "dest": "/frontend/dist/intranet-frontend/$1"
     }
-  ],
+  ]
   "env": {
     "APP_NAME": "Intranet",
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://jor4291-intranet.vercel.app",
+    "APP_URL": "https://jor4921-intranet.vercel.app",
 
     "DB_CONNECTION": "sqlite",
     "DB_DATABASE": "/tmp/database.sqlite",
@@ -34,7 +34,7 @@
     "CACHE_DRIVER": "file",
     "QUEUE_CONNECTION": "sync",
 
-    "SANCTUM_STATEFUL_DOMAINS": "jor4291-intranet.vercel.app"
+    "SANCTUM_STATEFUL_DOMAINS": "jor4921-intranet.vercel.app"
   },
   "build": {
     "env": {
