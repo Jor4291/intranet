@@ -17,47 +17,64 @@ import { AuthService } from '../../../core/services/auth.service';
           </h2>
         </div>
         <form class="mt-8 space-y-6" (ngSubmit)="onSubmit()">
-          <div class="rounded-md shadow-sm -space-y-px">
+          <div class="space-y-4">
             <div>
-              <label for="organization-slug" class="sr-only">Organization</label>
+              <label for="organization-slug" class="block text-sm font-medium text-gray-700 mb-1">
+                Organization Slug
+              </label>
               <input
                 id="organization-slug"
                 name="organization-slug"
                 type="text"
                 required
                 [(ngModel)]="organizationSlug"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Organization Slug"
+                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                placeholder="demo"
               />
             </div>
             <div>
-              <label for="username" class="sr-only">Username</label>
+              <label for="username" class="block text-sm font-medium text-gray-700 mb-1">
+                Username or Email
+              </label>
               <input
                 id="username"
                 name="username"
                 type="text"
                 required
                 [(ngModel)]="username"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Username"
+                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                placeholder="admin or neill"
               />
             </div>
             <div>
-              <label for="password" class="sr-only">Password</label>
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
                 [(ngModel)]="password"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
+                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                placeholder="Enter your password"
               />
             </div>
           </div>
 
           <div *ngIf="error" class="text-red-600 text-sm text-center">
             {{ error }}
+          </div>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-md p-4">
+            <div class="text-sm text-blue-800">
+              <p class="font-medium mb-2">Test Credentials:</p>
+              <div class="space-y-1 text-xs">
+                <p><strong>Admin Account:</strong> admin / password123</p>
+                <p><strong>Test Account:</strong> neill / Fhgryt123!!</p>
+                <p><strong>Organization:</strong> demo</p>
+              </div>
+            </div>
           </div>
 
           <div>
