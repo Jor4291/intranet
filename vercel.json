@@ -7,26 +7,23 @@
       "config": {
         "distDir": "dist/intranet-frontend"
       }
-    },
-    {
-      "src": "backend/public/index.php",
-      "use": "@vercel/php",
-      "config": {
-        "runtime": "php-8.2",
-        "buildCommand": "chmod +x vercel-deploy.sh && ./vercel-deploy.sh"
-      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/public/index.php"
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",
       "dest": "/frontend/dist/intranet-frontend/$1"
     }
   ],
+  "functions": {
+    "api/index.php": {
+      "runtime": "php-8.2"
+    }
+  },
   "env": {
     "APP_NAME": "Intranet",
     "APP_ENV": "production",
