@@ -3,37 +3,13 @@
   "builds": [
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/intranet-frontend"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/api/index.php"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/dist/intranet-frontend/$1"
     }
-  ],
-  "env": {
-    "APP_NAME": "Intranet",
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "APP_URL": "https://jor4921-intranet.vercel.app",
-
-    "DB_CONNECTION": "sqlite",
-    "DB_DATABASE": "/tmp/database.sqlite",
-
-    "SESSION_DRIVER": "file",
-    "SESSION_LIFETIME": "120",
-
-    "CACHE_DRIVER": "file",
-    "QUEUE_CONNECTION": "sync",
-
-    "SANCTUM_STATEFUL_DOMAINS": "jor4921-intranet.vercel.app"
-  }
+  ]
 }
