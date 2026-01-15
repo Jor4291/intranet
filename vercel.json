@@ -3,13 +3,25 @@
   "builds": [
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/intranet-frontend"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/api/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/intranet-frontend/$1"
     }
-  ]
+  ],
+  "env": {
+    "APP_KEY": "base64:x4IROeDX0mSrs3TJRkh9j5r7GtZf1Tuh8iUtXJorDfU=",
+    "DB_CONNECTION": "sqlite",
+    "DB_DATABASE": "/tmp/database.sqlite"
+  }
 }
