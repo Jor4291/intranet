@@ -75,12 +75,12 @@ export interface PersonalFile {
                   Manage Users
                 </button>
                 <div class="border-t border-gray-100"></div>
-                <button
-                  (click)="logout()"
+            <button
+              (click)="logout()"
                   class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50"
-                >
-                  Logout
-                </button>
+            >
+              Logout
+            </button>
               </div>
             </div>
           </div>
@@ -92,9 +92,9 @@ export interface PersonalFile {
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <!-- Left side - Dominant Newsfeed -->
           <div class="lg:col-span-2">
-            <!-- Newsfeed Widget -->
+          <!-- Newsfeed Widget -->
             <div class="bg-white rounded-lg shadow p-6">
-              <h2 class="text-xl font-semibold mb-4">Newsfeed</h2>
+            <h2 class="text-xl font-semibold mb-4">Newsfeed</h2>
               <div class="space-y-4">
                 <!-- New Post Form -->
                 <div class="border-b pb-4">
@@ -180,7 +180,7 @@ export interface PersonalFile {
                       />
                       <button
                         (click)="addComment(post.id)"
-                        [disabled]="!commentInputs[post.id]?.trim()"
+                        [disabled]="!commentInputs[post.id].trim()"
                         class="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 text-sm"
                       >
                         Comment
@@ -247,9 +247,9 @@ export interface PersonalFile {
                   No tasks yet. Add one above!
                 </div>
               </div>
-            </div>
+          </div>
 
-            <!-- Contacts Widget -->
+          <!-- Contacts Widget -->
             <div class="bg-white rounded-lg shadow p-6">
               <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-semibold">Contacts</h2>
@@ -283,7 +283,7 @@ export interface PersonalFile {
                       ></div>
                     </div>
                   </div>
-                </div>
+          </div>
 
                 <!-- Personal Contacts -->
                 <div *ngIf="personalContacts.length > 0">
@@ -373,7 +373,7 @@ export interface PersonalFile {
               >
                 Upload File
               </button>
-            </div>
+          </div>
             <input
               #personalFileInput
               type="file"

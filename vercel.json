@@ -20,8 +20,21 @@
     }
   ],
   "env": {
+    "APP_NAME": "Intranet",
+    "APP_ENV": "production",
     "APP_KEY": "base64:x4IROeDX0mSrs3TJRkh9j5r7GtZf1Tuh8iUtXJorDfU=",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://intranet-two-sepia.vercel.app",
+    "LOG_CHANNEL": "stack",
+    "LOG_LEVEL": "error",
     "DB_CONNECTION": "sqlite",
-    "DB_DATABASE": "/tmp/database.sqlite"
+    "DB_DATABASE": "/tmp/database.sqlite",
+    "BROADCAST_DRIVER": "log",
+    "CACHE_DRIVER": "file",
+    "FILESYSTEM_DISK": "local",
+    "QUEUE_CONNECTION": "sync",
+    "SESSION_DRIVER": "file",
+    "SESSION_LIFETIME": "120",
+    "SANCTUM_STATEFUL_DOMAINS": "intranet-two-sepia.vercel.app"
   }
 }
