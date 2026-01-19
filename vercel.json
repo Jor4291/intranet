@@ -18,5 +18,17 @@
       "src": "/(.*)",
       "dest": "/frontend/dist/intranet-frontend/$1"
     }
-  ]
+  ],
+  "env": {
+    "APP_NAME": "Intranet",
+    "APP_ENV": "production",
+    "APP_KEY": "base64:x4IROeDX0mSrs3TJRkh9j5r7GtZf1Tuh8iUtXJorDfU=",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://intranet-two-sepia.vercel.app",
+    "LOG_CHANNEL": "stack",
+    "LOG_LEVEL": "error",
+    "CACHE_DRIVER": "array",
+    "SESSION_DRIVER": "array",
+    "SANCTUM_STATEFUL_DOMAINS": "intranet-two-sepia.vercel.app"
+  }
 }
